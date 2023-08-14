@@ -1,3 +1,9 @@
 import create from './create';
 
-export default [create];
+const commands = [create];
+
+function initCommands(programInstance) {
+  commands.forEach((command) => command.call(programInstance));
+}
+
+export default initCommands;

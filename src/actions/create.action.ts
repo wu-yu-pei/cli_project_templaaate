@@ -24,11 +24,7 @@ export default () => {
 };
 
 function onError(error) {
-  if (error.isTtyError) {
-    console.log("Prompt couldn't be rendered in the current environment");
-  } else {
-    console.log(error);
-  }
+  console.log(error);
 }
 
 async function processInitProject({ project_name, project_type }) {

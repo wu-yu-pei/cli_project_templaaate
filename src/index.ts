@@ -1,11 +1,15 @@
 import { Command } from 'commander';
-import commands from './command/index';
+import initCommanderHelper from './helper/index';
+import initCommands from './command/index';
 
+// Command instance
 const program = new Command();
 
-program.name('initp').description('CLI').version('0.0.0');
+// init command helper
+initCommanderHelper(program);
 
-// commander
-commands.forEach((command) => command.call(program));
+// init commands
+initCommands(program);
 
+// parse arguments
 program.parse();
