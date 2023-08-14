@@ -36,9 +36,7 @@ export default () => {
 async function processInitProject({ project_name, project_type }) {
   const currentPath = process.cwd();
   try {
-    const { stdout, stderr } = (await useExec(`git clone ${project_type}`)) as any;
-    process.stdout.write(stdout);
-    process.stderr.write(stderr);
+    await useExec('git', 'clone', project_type);
   } catch (error) {
     console.log(error);
   }
