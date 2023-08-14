@@ -19,19 +19,17 @@ export default () => {
         choices: project_template_list,
       },
     ])
-    .then(async (answers) => {
-      console.log(answers);
-
-      await processInitProject(answers);
-    })
-    .catch((error) => {
-      if (error.isTtyError) {
-        console.log("Prompt couldn't be rendered in the current environment");
-      } else {
-        console.log(error);
-      }
-    });
+    .then(processInitProject)
+    .catch(onError);
 };
+
+function onError(error) {
+  if (error.isTtyError) {
+    console.log("Prompt couldn't be rendered in the current environment");
+  } else {
+    console.log(error);
+  }
+}
 
 async function processInitProject({ project_name, project_type }) {
   const currentPath = process.cwd();

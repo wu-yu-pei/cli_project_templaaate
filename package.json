@@ -2,7 +2,7 @@
   "name": "@superyou/cli",
   "version": "1.0.0",
   "description": "一个cli 整合所有项目模版（vue、react、express、nest、koa等） 便于快速开发。",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "bin": {
     "initp": "dist/index.js"
   },
