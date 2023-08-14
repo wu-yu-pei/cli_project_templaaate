@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import slice from './command/slice';
-import split from './command/split';
+import split from './command/create';
 
 const program = new Command();
 

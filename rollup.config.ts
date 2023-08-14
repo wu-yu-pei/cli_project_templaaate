@@ -14,7 +14,7 @@ const options: RollupOptions = {
       format: 'es',
     },
   ],
-  plugins: [json(), typescript(), nodeResolve(), commonjs(), terser(), addShebang({ include: './dist/index.js' })],
+  plugins: [json(), typescript(), nodeResolve({ preferBuiltins: false }), commonjs(), terser(), addShebang({ include: './dist/index.js' })],
 };
 
 export default options;
