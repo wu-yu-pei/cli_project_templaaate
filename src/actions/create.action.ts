@@ -13,7 +13,7 @@ export default () => {
       },
       {
         type: 'list',
-        name: 'project_type',
+        name: 'repository',
         message: '请选择类型',
         default: 'vue',
         choices: project_template_list,
@@ -27,10 +27,14 @@ function onError(error) {
   console.log(error);
 }
 
-async function processInitProject({ project_name, project_type }) {
-  const currentPath = process.cwd();
+async function processInitProject({ project_name, repository }) {
+  if (!project_name) {
+    console.log('仓库模版不存在');
+    return;
+  }
+
   try {
-    await useExec('git', 'clone', project_type);
+    await useExec('git', 'clone', repository, project_name);
   } catch (error) {
     console.log(error);
   }
